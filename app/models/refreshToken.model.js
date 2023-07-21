@@ -9,7 +9,7 @@ module.exports = (sequelize, Sequelize) => {
     expiryDate: {
       type: Sequelize.DATE,
     },
-  });
+  });    
 
   RefreshToken.createToken = async function (user) {
     let expiredAt = new Date();
@@ -18,7 +18,7 @@ module.exports = (sequelize, Sequelize) => {
 
     let _token = uuidv4();
 
-    let refreshToken = await this.create({
+    let refreshToken = await this.create({   
       token: _token,
       userId: user.id,
       expiryDate: expiredAt.getTime(),
